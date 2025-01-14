@@ -1,0 +1,33 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChartServiceVersion
+metadata:
+  annotations:
+    categories: ""
+    chartDescription: ""
+    createdAt: ""
+    repository: ""
+    support: ""
+    vendor: ""
+  name: shippingservice-pod-network-loss-ih2fe
+packageInfo:
+  experiments: null
+  packageName: ""
+spec:
+  categoryDescription: injects pod-network-loss fault on application kind Deployment,
+    name shippingservice in boutique namespace
+  displayName: shippingservice-pod-network-loss-ih2fe
+  experiments: null
+  faults:
+  - chaosType: ""
+    description: ""
+    displayName: ""
+    name: pod-network-loss-nq7mx
+    plan: null
+    supportedVersion: null
+  keywords:
+  - applicationmap=forresterdemoappboutique
+  - service=shippingservice
+  plan: null
+  provider:
+    name: ""
+  scenarios: null

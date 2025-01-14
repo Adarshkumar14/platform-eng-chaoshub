@@ -1,0 +1,59 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: KubernetesChaosExperiment
+metadata:
+  name: shippingservice-pod-network-loss-ih2fe
+  namespace: harness-delegate-ng
+spec:
+  cleanupPolicy: delete
+  experimentId: ""
+  experimentRunId: ""
+  serviceAccountName: litmus
+  steps:
+  - - name: pod-network-loss-nq7mx
+      status: ""
+  tasks:
+  - definition:
+      chaos:
+        cleanupPolicy: ""
+        defaultHealthCheck: false
+        env:
+        - name: TOTAL_CHAOS_DURATION
+          value: "60"
+        - name: NETWORK_PACKET_LOSS_PERCENTAGE
+          value: "100"
+        - name: CONTAINER_RUNTIME
+          value: containerd
+        - name: SOCKET_PATH
+          value: /run/containerd/containerd.sock
+        - name: LIB_IMAGE
+          value: docker.io/harness/chaos-ddcr-faults:1.50.0
+        - name: POD_AFFECTED_PERCENTAGE
+        - name: NETWORK_INTERFACE
+          value: eth0
+        - name: RAMP_TIME
+        - name: TARGET_PODS
+        - name: NODE_LABEL
+        - name: DESTINATION_IPS
+        - name: DESTINATION_HOSTS
+        - name: SOURCE_PORTS
+        - name: DESTINATION_PORTS
+        - name: SEQUENCE
+          value: parallel
+        experiment: pod-network-loss
+        image: docker.io/harness/chaos-ddcr-faults:1.50.0
+        imagePullPolicy: IfNotPresent
+      targets:
+        selectors:
+          workloads:
+          - kind: deployment
+            labels: ""
+            names: shippingservice
+            namespace: boutique
+    name: pod-network-loss-nq7mx
+    probeRef:
+    - mode: Edge
+      probeID: default-harness-k8s-system-cmd-probe
+    - mode: Continuous
+      probeID: boutique-app-health-check
+    values: null
+variables: null
