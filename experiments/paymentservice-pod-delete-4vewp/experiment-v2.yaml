@@ -1,0 +1,47 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: KubernetesChaosExperiment
+metadata:
+  name: paymentservice-pod-delete-4vewp
+  namespace: harness-delegate-ng
+spec:
+  cleanupPolicy: delete
+  experimentId: ""
+  experimentRunId: ""
+  serviceAccountName: litmus
+  steps:
+  - - name: pod-delete-fuolc
+      status: ""
+  tasks:
+  - definition:
+      chaos:
+        cleanupPolicy: ""
+        defaultHealthCheck: false
+        env:
+        - name: TOTAL_CHAOS_DURATION
+          value: "30"
+        - name: CHAOS_INTERVAL
+          value: "10"
+        - name: FORCE
+          value: "false"
+        - name: RAMP_TIME
+        - name: POD_AFFECTED_PERCENTAGE
+        - name: TARGET_PODS
+        - name: NODE_LABEL
+        - name: SEQUENCE
+          value: parallel
+        experiment: pod-delete
+        image: docker.io/harness/chaos-ddcr-faults:1.50.0
+        imagePullPolicy: IfNotPresent
+      targets:
+        selectors:
+          workloads:
+          - kind: deployment
+            labels: ""
+            names: paymentservice
+            namespace: boutique
+    name: pod-delete-fuolc
+    probeRef:
+    - mode: Edge
+      probeID: default-harness-k8s-system-cmd-probe
+    values: null
+variables: null

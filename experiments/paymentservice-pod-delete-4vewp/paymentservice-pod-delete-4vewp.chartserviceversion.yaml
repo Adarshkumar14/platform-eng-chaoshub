@@ -1,0 +1,33 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChartServiceVersion
+metadata:
+  annotations:
+    categories: ""
+    chartDescription: ""
+    createdAt: ""
+    repository: ""
+    support: ""
+    vendor: ""
+  name: paymentservice-pod-delete-4vewp
+packageInfo:
+  experiments: null
+  packageName: ""
+spec:
+  categoryDescription: injects pod-delete fault on application kind Deployment, name
+    paymentservice in boutique namespace
+  displayName: paymentservice-pod-delete-4vewp
+  experiments: null
+  faults:
+  - chaosType: ""
+    description: ""
+    displayName: ""
+    name: pod-delete-fuolc
+    plan: null
+    supportedVersion: null
+  keywords:
+  - applicationmap=forresterdemoappboutique
+  - service=paymentservice
+  plan: null
+  provider:
+    name: ""
+  scenarios: null
