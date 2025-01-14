@@ -1,0 +1,54 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: KubernetesChaosExperiment
+metadata:
+  name: checkoutservice-pod-memory-hog-oe2cp
+  namespace: harness-delegate-ng
+spec:
+  cleanupPolicy: delete
+  experimentId: ""
+  experimentRunId: ""
+  serviceAccountName: litmus
+  steps:
+  - - name: pod-memory-hog-8yq0j
+      status: ""
+  tasks:
+  - definition:
+      chaos:
+        cleanupPolicy: ""
+        defaultHealthCheck: false
+        env:
+        - name: TOTAL_CHAOS_DURATION
+          value: "60"
+        - name: MEMORY_CONSUMPTION
+          value: "200"
+        - name: NUMBER_OF_WORKERS
+          value: "1"
+        - name: POD_AFFECTED_PERCENTAGE
+        - name: CONTAINER_RUNTIME
+          value: containerd
+        - name: SOCKET_PATH
+          value: /run/containerd/containerd.sock
+        - name: LIB_IMAGE
+          value: docker.io/harness/chaos-ddcr-faults:1.50.0
+        - name: RAMP_TIME
+        - name: SEQUENCE
+          value: parallel
+        - name: TARGET_CONTAINER
+        - name: TARGET_PODS
+        - name: NODE_LABEL
+        experiment: pod-memory-hog
+        image: docker.io/harness/chaos-ddcr-faults:1.50.0
+        imagePullPolicy: IfNotPresent
+      targets:
+        selectors:
+          workloads:
+          - kind: deployment
+            labels: ""
+            names: checkoutservice
+            namespace: boutique
+    name: pod-memory-hog-8yq0j
+    probeRef:
+    - mode: Edge
+      probeID: default-harness-k8s-system-cmd-probe
+    values: null
+variables: null

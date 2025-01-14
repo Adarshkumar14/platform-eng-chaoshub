@@ -1,0 +1,33 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChartServiceVersion
+metadata:
+  annotations:
+    categories: ""
+    chartDescription: ""
+    createdAt: ""
+    repository: ""
+    support: ""
+    vendor: ""
+  name: checkoutservice-pod-memory-hog-oe2cp
+packageInfo:
+  experiments: null
+  packageName: ""
+spec:
+  categoryDescription: injects pod-memory-hog fault on application kind Deployment,
+    name checkoutservice in boutique namespace
+  displayName: checkoutservice-pod-memory-hog-oe2cp
+  experiments: null
+  faults:
+  - chaosType: ""
+    description: ""
+    displayName: ""
+    name: pod-memory-hog-8yq0j
+    plan: null
+    supportedVersion: null
+  keywords:
+  - applicationmap=forresterdemoappboutique
+  - service=checkoutservice
+  plan: null
+  provider:
+    name: ""
+  scenarios: null
