@@ -1,0 +1,33 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChartServiceVersion
+metadata:
+  annotations:
+    categories: ""
+    chartDescription: ""
+    createdAt: ""
+    repository: ""
+    support: ""
+    vendor: ""
+  name: cartservice-pod-memory-hog-uypap
+packageInfo:
+  experiments: null
+  packageName: ""
+spec:
+  categoryDescription: injects pod-memory-hog fault on application kind Deployment,
+    name cartservice in boutique namespace
+  displayName: cartservice-pod-memory-hog-uypap
+  experiments: null
+  faults:
+  - chaosType: ""
+    description: ""
+    displayName: ""
+    name: pod-memory-hog-5t203
+    plan: null
+    supportedVersion: null
+  keywords:
+  - applicationmap=forresterdemoappboutique
+  - service=cartservice
+  plan: null
+  provider:
+    name: ""
+  scenarios: null
